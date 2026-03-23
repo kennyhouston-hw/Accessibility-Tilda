@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Глобальные переменные
     let currentFontSizePercent = 100;
-    const fontSelectors = '[data-elem-type="text"], [data-elem-type="text"] .tn-atom, [data-elem-type="text"] a, .t-input-phonemask__select-code, .t-input__vis-ph, .t-input, .t-checkbox__labeltext, .t-btnflex__text, .t-text, .t-text a, .t-name, .t-name a, .t-descr, .t-descr a, .t-title, .t-title a, .t-subtitle, .t-subtitle a, [field="text"], [field="title"], [field="subtitle"], [field="descr"], [field^="tn_text"], .tn-atom__button-text, .t-btn';
+    const fontSelectors = '[data-elem-type="text"], [data-elem-type="text"] .tn-atom, [data-elem-type="text"] a, .t-submit .t-input-phonemask__select-code, .t-input__vis-ph, .t-input, .t-checkbox__labeltext, .t-btnflex__text, .t-text, .t-text a, .t-name, .t-name a, .t-descr, .t-descr a, .t-title, .t-title a, .t-subtitle, .t-subtitle a, [field="text"], [field="title"], [field="subtitle"], [field="descr"], [field^="tn_text"], .tn-atom__button-text, .t-btn';
 
     // --- БЛОК 1: БЫСТРАЯ ИНИЦИАЛИЗАЦИЯ (Без зависаний) ---
     function applyFastSettings() {
