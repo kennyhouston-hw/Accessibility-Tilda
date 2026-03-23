@@ -1,0 +1,145 @@
+/* ==========================================================================
+   1. ИНТЕРФЕЙС ПАНЕЛИ И КНОПОК
+   ========================================================================== */
+.t123:has([aria-expanded="true"]) .accessibility-panel { right: 0; }
+#accessibility-title { margin-bottom: 20px; font-weight: bold; font-size: 18px; }
+.access { cursor: pointer; }
+.option-group:has(#reset-accessibility) { margin-bottom: 0; }
+#decrease-font { font-size: 10px; }
+#increase-font { font-size: 16px; }
+
+.accessibility-panel {
+    position: fixed; top: 50%; right: -300px; width: 250px; max-height: 100vh;
+    overflow-y: auto; line-height: 20px; scrollbar-width: none; -ms-overflow-style: none;
+    background-color: #ffffff; color: #000000; box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 15px; transition: right 0.3s ease; z-index: 9999999;
+    border-radius: 10px 0 0 10px; border: 1px solid #ddd; font-size: 16px;
+    box-sizing: border-box; font-family: Arial, sans-serif; transform: translateY(-50%);
+}
+.accessibility-panel::-webkit-scrollbar { display: none; }
+.accessibility-panel.open { right: 0; }
+
+.accessibility-toggle {
+    position: fixed; top: 100px; right: 0; background-color: #3498db; color: #fff; display: flex;
+    border: none; border-radius: 12px 0 0 12px; padding: 16px; cursor: pointer; z-index: 10000;
+}
+.accessibility-toggle:focus { outline: 3px solid #ff6b00; }
+
+.accessibility-toggle svg {
+   width: 24px; height: 24px; display: block;
+}
+
+.option-group { width: 100%; }
+.option-group-title { margin-top: 0; margin-bottom: 10px; font-size: 16px; font-weight: bold; }
+
+.color-scheme-btn { display: block; width: 100%; padding: 8px 10px; margin-bottom: 8px; border-radius: 5px; cursor: pointer; text-align: left; border: 2px solid transparent; box-sizing: border-box; }
+.color-scheme-btn:focus { outline: 2px solid #3498db; }
+.color-scheme-btn.active { border-color: #3498db; }
+
+/* Кнопки цветовых тем (для самой панели) */
+.black-on-white { background-color: white; color: black; }
+.white-on-black { background-color: black; color: white; }
+.brown-on-beige { background-color: #f5f5dc; color: #8b4513; }
+.dark-blue-on-blue { background-color: #add8e6; color: #00008b; }
+
+.font-size-controls { display: flex; justify-content: space-between; margin-bottom: 10px; width: 100%; }
+.font-size-btn { padding: 8px 15px; border-radius: 5px; cursor: pointer; background-color: #f0f0f0; border: 1px solid #ddd; flex-grow: 1; margin: 0 5px; text-align: center; }
+.font-size-btn:first-child { margin-left: 0; }
+.font-size-btn:last-child { margin-right: 0; }
+.font-size-btn:hover { background-color: #e0e0e0; }
+.font-size-btn:focus { outline: 2px solid #3498db; }
+.font-size-btn.active { border: 2px solid #3498db; }
+
+.filter-btn { display: flex; align-items: center; width: 100%; padding: 8px 10px; margin-bottom: 8px; border-radius: 5px; cursor: pointer; text-align: left; background-color: #f0f0f0; border: 1px solid #ddd; box-sizing: border-box; }
+.filter-btn.active { background-color: #e0e0e0; border-color: #3498db; }
+.filter-btn:focus { outline: 2px solid #3498db; }
+.filter-icon { width: 20px; height: 20px; margin-right: 10px; background-color: #ddd; border-radius: 3px; flex-shrink: 0; }
+
+#reset-accessibility { width: 100%; padding: 10px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; box-sizing: border-box; }
+#reset-accessibility:hover { background-color: #d32f2f; }
+#reset-accessibility:focus { outline: 2px solid #ff6b00; }
+
+/* ==========================================================================
+   2. ГЛОБАЛЬНЫЕ ЦВЕТОВЫЕ СХЕМЫ (ПРИМЕНЯЮТСЯ К САЙТУ)
+   ========================================================================== */
+/* Черным по белому */
+body.accessibility-black-on-white { background-color: #fff !important; color: #000 !important; }
+body.accessibility-black-on-white *:not(.bg-img .tn-molecule):not(.image .tn-atom):not(.access .tn-atom):not(.accessibility-toggle):not(.accessibility-toggle svg):not(.tn-atom__button-border):not(.tn-atom__button-content), body.accessibility-black-on-white input::placeholder {
+    background-color: #fff !important; color: #000 !important; opacity: 1 !important; border-color: #000 !important; background-image: none !important; 
+}
+body.accessibility-black-on-white a { color: #0000ff !important; text-decoration: underline !important; }
+
+/* Белым по черному */
+body.accessibility-white-on-black { background-color: #000 !important; color: #fff !important; }
+body.accessibility-white-on-black *:not(.bg-img .tn-molecule):not(.image .tn-atom):not(.access .tn-atom):not(.accessibility-toggle):not(.accessibility-toggle svg):not(.tn-atom__button-border):not(.tn-atom__button-content), body.accessibility-white-on-black input::placeholder {
+    background-color: #000 !important; color: #fff !important; opacity: 1 !important; border-color: #fff !important; background-image: none !important; 
+}
+body.accessibility-white-on-black a { color: #ffff00 !important; text-decoration: underline !important; }
+
+/* Коричневым по бежевому */
+body.accessibility-brown-on-beige { background-color: #f5f5dc !important; color: #8b4513 !important; }
+body.accessibility-brown-on-beige *:not(.bg-img .tn-molecule):not(.image .tn-atom):not(.access .tn-atom):not(.accessibility-toggle):not(.accessibility-toggle svg):not(.tn-atom__button-border):not(.tn-atom__button-content), body.accessibility-brown-on-beige input::placeholder {
+    background-color: #f5f5dc !important; color: #8b4513 !important; opacity: 1 !important; border-color: #8b4513 !important; background-image: none !important; 
+}
+body.accessibility-brown-on-beige a { color: #a52a2a !important; text-decoration: underline !important; }
+
+/* Темно-синим по синему */
+body.accessibility-dark-blue-on-blue { background-color: #add8e6 !important; color: #00008b !important; }
+body.accessibility-dark-blue-on-blue *:not(.bg-img .tn-molecule):not(.image .tn-atom):not(.access .tn-atom):not(.accessibility-toggle):not(.accessibility-toggle svg):not(.tn-atom__button-border):not(.tn-atom__button-content), body.accessibility-dark-blue-on-blue input::placeholder {
+    background-color: #add8e6 !important; color: #00008b !important; opacity: 1 !important; border-color: #00008b !important; background-image: none !important; 
+}
+body.accessibility-dark-blue-on-blue a { color: #0000cd !important; text-decoration: underline !important; }
+
+/* ==========================================================================
+   3. СПЕЦ. ФУНКЦИИ (КУРСОР, КАРТИНКИ, ВЫДЕЛЕНИЕ ТЕКСТА)
+   ========================================================================== */
+.large-cursor { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='transparent' stroke='black' stroke-width='3'/%3E%3Ccircle cx='24' cy='24' r='8' fill='black'/%3E%3C/svg%3E"), auto !important; }
+body.accessibility-white-on-black.large-cursor { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='transparent' stroke='white' stroke-width='3'/%3E%3Ccircle cx='24' cy='24' r='8' fill='white'/%3E%3C/svg%3E"), auto !important; }
+body.accessibility-brown-on-beige.large-cursor { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='transparent' stroke='%238b4513' stroke-width='3'/%3E%3Ccircle cx='24' cy='24' r='8' fill='%238b4513'/%3E%3C/svg%3E"), auto !important; }
+
+body.accessibility-hide-images img, body.accessibility-hide-images video,
+body.accessibility-hide-images iframe { visibility: hidden !important; opacity: 0 !important; }
+body.accessibility-hide-images [style*="background-image:"] { background-image: none !important; }
+.accessibility-highlight-text { background-color: yellow !important; color: black !important; }
+
+/* ==========================================================================
+   4. ИНДИВИДУАЛЬНЫЕ ФИКСЫ ДЛЯ ZERO BLOCK
+   ========================================================================== */
+html body[class*="accessibility-"] [data-elem-type="text"],
+html body[class*="accessibility-"] [data-elem-type="text"] * { background-color: transparent !important; }   
+
+/* Убираем перекрытие слоев кнопки */
+html body[class*="accessibility-"] .t396__elem[data-elem-type="button"] .tn-atom__button-content,
+html body[class*="accessibility-"] .t396__elem[data-elem-type="button"] .tn-atom__button-border,
+html body[class*="accessibility-"] .t396__elem[data-elem-type="button"] .tn-atom__button-text {
+    background-color: transparent !important; background-image: none !important;
+}
+
+/* Цвета обертки и текста кнопок Zero Block */
+html body.accessibility-black-on-white .t396__elem[data-elem-type="button"] .tn-atom { background-color: #ffffff !important; border: 2px solid #000000 !important; }
+html body.accessibility-black-on-white .t396__elem[data-elem-type="button"] .tn-atom__button-text { color: #000000 !important; }
+html body.accessibility-white-on-black .t396__elem[data-elem-type="button"] .tn-atom { background-color: #000000 !important; border: 2px solid #ffffff !important; }
+html body.accessibility-white-on-black .t396__elem[data-elem-type="button"] .tn-atom__button-text { color: #ffffff !important; }
+html body.accessibility-brown-on-beige .t396__elem[data-elem-type="button"] .tn-atom { background-color: #f5f5dc !important; border: 2px solid #8b4513 !important; }
+html body.accessibility-brown-on-beige .t396__elem[data-elem-type="button"] .tn-atom__button-text { color: #8b4513 !important; }
+html body.accessibility-dark-blue-on-blue .t396__elem[data-elem-type="button"] .tn-atom { background-color: #add8e6 !important; border: 2px solid #00008b !important; }
+html body.accessibility-dark-blue-on-blue .t396__elem[data-elem-type="button"] .tn-atom__button-text { color: #00008b !important; }
+html body[class*="accessibility-"] .t396__elem[data-elem-type="button"] .tn-atom:hover { opacity: 0.9 !important; }
+
+/* ==========================================================================
+   5. ФИКСЫ ДЛЯ КНОПОК ФОРМ И ПОПАПОВ (ПЕРЕБИВАЕМ СТИЛИ ТИЛЬДЫ)
+   ========================================================================== */
+body.accessibility-black-on-white #allrecords .t-submit, body.accessibility-black-on-white #allrecords .t-btnflex, body.accessibility-black-on-white #allrecords .t-btnflex:not(.t-animate_no-hover):hover, body.accessibility-black-on-white #allrecords .t-btnflex:not(.t-animate_no-hover):focus-visible {
+    background-color: #ffffff !important; color: #000000 !important; border-style: solid !important; border-width: 2px !important; border-color: #000000 !important; background-image: none !important; box-shadow: none !important;
+}
+body.accessibility-white-on-black #allrecords .t-submit, body.accessibility-white-on-black #allrecords .t-btnflex, body.accessibility-white-on-black #allrecords .t-btnflex:not(.t-animate_no-hover):hover, body.accessibility-white-on-black #allrecords .t-btnflex:not(.t-animate_no-hover):focus-visible {
+    background-color: #000000 !important; color: #ffffff !important; border-style: solid !important; border-width: 2px !important; border-color: #ffffff !important; background-image: none !important; box-shadow: none !important;
+}
+body.accessibility-brown-on-beige #allrecords .t-submit, body.accessibility-brown-on-beige #allrecords .t-btnflex, body.accessibility-brown-on-beige #allrecords .t-btnflex:not(.t-animate_no-hover):hover, body.accessibility-brown-on-beige #allrecords .t-btnflex:not(.t-animate_no-hover):focus-visible {
+    background-color: #f5f5dc !important; color: #8b4513 !important; border-style: solid !important; border-width: 2px !important; border-color: #8b4513 !important; background-image: none !important; box-shadow: none !important;
+}
+body.accessibility-dark-blue-on-blue #allrecords .t-submit, body.accessibility-dark-blue-on-blue #allrecords .t-btnflex, body.accessibility-dark-blue-on-blue #allrecords .t-btnflex:not(.t-animate_no-hover):hover, body.accessibility-dark-blue-on-blue #allrecords .t-btnflex:not(.t-animate_no-hover):focus-visible {
+    background-color: #add8e6 !important; color: #00008b !important; border-style: solid !important; border-width: 2px !important; border-color: #00008b !important; background-image: none !important; box-shadow: none !important;
+}
+body[class*="accessibility-"] #allrecords .t-submit *, body[class*="accessibility-"] #allrecords .t-btnflex * { color: inherit !important; }
+body[class*="accessibility-"] #allrecords .t-submit:hover, body[class*="accessibility-"] #allrecords .t-btnflex:hover { opacity: 0.8 !important; }
