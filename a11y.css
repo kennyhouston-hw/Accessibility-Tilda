@@ -21,9 +21,14 @@
 
 .accessibility-toggle {
     position: fixed; top: 100px; right: 0; background-color: #3498db; color: #fff; display: flex;
-    border: none; border-radius: 5px 0 0 5px; padding: 12px; cursor: pointer; z-index: 10000;
+    border: none; border-radius: 12px 0 0 12px; padding: 16px; cursor: pointer; z-index: 10000;
 }
 .accessibility-toggle:focus { outline: 3px solid #ff6b00; }
+
+/* Управляем размером самой иконки */
+.accessibility-toggle svg {
+   width: 24px; height: 24px; display: block;
+}
 
 .option-group { width: 100%; }
 .option-group-title { margin-top: 0; margin-bottom: 10px; font-size: 16px; font-weight: bold; }
